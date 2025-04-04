@@ -1,0 +1,621 @@
+/* General Styles */
+html, body {
+    height: 100%; /* Full height for the viewport */
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background: #d3cece;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+body {
+    margin-top: 0; /* Remove the margin to let the background image cover the full screen */
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+a:hover {
+    color: #000000; /* Add hover effect */
+}
+
+/* General Header Styling */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: rgba(0, 0, 0, 0.178); /* Semi-transparent black background */
+    color: #fff;
+    position: fixed; /* Fix the header at the top */
+    top: 0; /* Align it to the top of the viewport */
+    left: 0;
+    width: 100%; /* Ensure it spans the full width */
+    z-index: 1000; /* Ensure it stays above other elements */
+    box-shadow: none; /* Remove shadow for a cleaner look */
+    backdrop-filter: blur(5px); /* Optional: Add a blur effect for better readability */
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo-text {
+    margin-left: 10px;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.main-nav {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+/* Navigation Links */
+.nav-links {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    flex-wrap: nowrap; /* Prevent wrapping */
+    overflow: visible; /* Ensure no content is hidden */
+    margin-right: 30px; /* Move the nav buttons 10px from the right corner */
+}
+
+.nav-links li {
+    margin: 0 10px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 1rem;
+    transition: color 0.3s;
+    white-space: nowrap; /* Prevent text wrapping */
+}
+
+.nav-links a:hover {
+    color: #00bcd4;
+}
+
+/* Menu Toggle Button */
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: #ffffff;
+    font-size: 1.5rem;
+    cursor: pointer;
+    position: absolute;
+    top: 50%; /* Center vertically */
+    right: 30px;
+    transform: translateY(-50%); /* Adjust for perfect centering */
+    z-index: 1100;
+
+}
+
+/* Responsive Navigation */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block; /* Show the menu toggle on smaller screens */
+    }
+
+    .nav-links {
+        display: none; /* Hide by default on smaller screens */
+        flex-direction: column;
+        position: absolute;
+        top: 100%; /* Position below the header */
+        right: 0;
+        background-color: #000000;
+        width: 200px;
+        border: 1px solid #444444;
+        z-index: 1000; /* Ensure it stays above other elements */
+    }
+
+    .nav-links.active {
+        display: flex; /* Show the nav links when active */
+        padding: 5px; /* Add padding for better spacing */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional: Add shadow for depth */
+        border-radius: 10px; /* Optional: Add rounded corners */
+        margin-top: 10px; /* Add spacing from the header */
+        background-color: rgba(0, 0, 0, 0.8); /* Darker background for better contrast */
+        backdrop-filter: blur(5px); /* Optional: Add a blur effect for better readability */
+
+
+        
+    }
+
+    .nav-links li {
+        margin: 10px 0; /* Add spacing between items in the dropdown */
+    }
+}
+
+/* Hero Section */
+.hero {
+    height: 100vh; /* Full viewport height */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative; /* Make it relative for the overlay */
+    background: url('bdbg.jpg') no-repeat center center/cover; /* Background image */
+    padding: 0 20px;
+    box-sizing: border-box;
+    color: #fff; /* Ensure text is readable on the background */
+}
+
+/* Add a dimming overlay */
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent black overlay */
+    z-index: 1; /* Ensure it stays behind the content */
+}
+
+/* Ensure the text content is above the overlay */
+.hero-text {
+    position: relative;
+    z-index: 2; /* Place the text above the overlay */
+}
+
+.hero-text h1 {
+    font-size: 48px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.hero-text p {
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+.btn {
+    background: #0ccad8e7;
+    color: white;
+    padding: 15px 25px;
+    text-decoration: none;
+    border-radius: 10px;
+    transition: background 0.3s;
+}
+
+.btn:hover {
+    background: #080808d5;
+}
+
+/* About Section */
+.about {
+    position: relative; /* Make the section relative for positioning the title */
+    padding: 50px 20px;
+    background-color: #fff;
+}
+
+.about-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    margin: 0 auto;
+    flex-wrap: wrap; /* Allow wrapping for smaller screens */
+}
+
+.about-image {
+    flex: 1;
+    text-align: left;
+}
+
+.about-image img {
+    max-width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* About Section Text */
+.about-text {
+    flex: 1;
+    text-align: justify;
+    font-size: 1.2em; /* Increase the font size */
+    line-height: 2; /* Improve readability with better line spacing */
+    color: #333; /* Ensure the text color contrasts well with the background */
+}
+
+/* Position the "ABOUT ME" title at the top-right */
+.about .section-title {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+}
+
+/* Responsive Design for About Section */
+@media (max-width: 768px) {
+    .about-content {
+        flex-direction: column; /* Stack the image and text vertically */
+        text-align: center; /* Center-align the content */
+    }
+
+    .about-image {
+        max-width: 100%; /* Allow the image to take full width */
+    }
+
+    .about-text {
+        text-align: center; /* Center-align the text */
+        margin-top: 20px; /* Add spacing between the image and text */
+        font-size: 1.2rem; /* Slightly smaller font size for smaller screens */
+        line-height: 1.8; /* Adjust line spacing for smaller screens */
+    }
+
+    .about .section-title {
+        position: static; /* Reset position for smaller screens */
+        margin-bottom: 20px; /* Add spacing below the title */
+        text-align: center; /* Center-align the title */
+    }
+}
+
+/* Skills Section */
+.skills {
+    padding: 50px 20px;
+    background-color: #f9f9f9;
+    text-align: center; /* Center the section title */
+}
+
+.skills-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Center the icons horizontally */
+    align-items: center; /* Center the icons vertically */
+    gap: 20px; /* Add space between the icons */
+}
+
+.skills .images img {
+    width: 80px; /* Adjust the size of the icons */
+    height: auto;
+    margin: 10px; /* Add spacing around each icon */
+    transition: transform 0.3s ease;
+}
+
+.skills .images img:hover {
+    transform: scale(1.1); /* Add hover effect */
+}
+
+/* Responsive Design for Skills Section */
+@media (max-width: px) {
+    .skills-content {
+        flex-direction: column; /* Stack the icons vertically */
+        align-items: center; /* Center the icons */
+    }
+
+    .skills .images img {
+        width: 60px; /* Reduce the size of the icons for smaller screens */
+        margin: 5px; /* Adjust spacing for smaller screens */
+    }
+}
+
+/* Service Card Back */
+.service-card-back {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-size: cover; /* Ensure the image covers the entire card */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Prevent the image from repeating */
+    color: #fff; /* Optional: Text color if needed */
+    font-size: 1rem; /* Optional: Adjust font size if text is still used */
+    padding: 10px; /* Optional: Add padding if needed */
+    height: 100%; /* Ensure it matches the card's height */
+    width: 100%; /* Ensure it matches the card's width */
+    border-radius: 10px; /* Optional: Match the card's border radius */
+    transform: rotateY(180deg); /* Flip the back */
+}
+
+/* Services Section */
+.services {
+    padding: 50px 20px;
+    background-color: #f9f9f9;
+    text-align: left; /* Center the section title */
+}
+
+.service-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px; /* Add space between the cards */
+}
+
+.service-card {
+    width: 280px;
+    height: 230px;
+    perspective: 1000px; /* Enable 3D effect */
+    margin: 0 auto; /* Center the cards horizontally */
+}
+
+.service-card-inner {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.6s;
+}
+
+.service-card:hover .service-card-inner {
+    transform: rotateY(180deg); /* Flip the card on hover */
+}
+
+.service-card-front,
+.service-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden; /* Hide the back when the front is visible */
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+/* Front of the Card */
+.service-card-front {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #007BFF;
+    color: white;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-align: center;
+    padding: 20px;
+}
+
+/* Back of the Card */
+.service-card-back {
+    background-size: cover; /* Ensure the image covers the entire card */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Prevent the image from repeating */
+    transform: rotateY(180deg); /* Flip the back */
+}
+
+/* Responsive Design for Services Section */
+@media (max-width: 768px) {
+    .service-container {
+        display: grid; /* Use grid layout */
+        grid-template-columns: repeat(2, 1fr); /* Create 2 columns of equal width */
+        gap: 20px; /* Add space between the cards */
+        justify-content: center; /* Center the grid */
+        margin: 0 auto; /* Center the grid */
+        padding: 0 10px; /* Add padding for smaller screens */
+        width: 100%; /* Ensure the grid takes full width */
+        box-sizing: border-box; /* Include padding in width calculation */
+    }
+
+    .service-card {
+        width: 90%; /* Make the cards take up the full width of the grid cell */
+        height: 190px; /* Increase the height of the cards */
+        margin: 10px; /* Remove extra margins */
+    }
+
+    .service-card-front,
+    .service-card-back {
+        font-size: 1rem; /* Adjust font size for smaller screens */
+        padding: 15px; /* Add padding for better readability */
+    }
+}
+
+/* Location Section */
+.location {
+    padding: 50px 20px;
+    background-color: #f9f9f9;
+    text-align: center; /* Center the section title */
+}
+
+.location h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.location-container {
+    display: flex;
+    flex-wrap: wrap; /* Allow wrapping for smaller screens */
+    gap: 20px; /* Add space between the map and contact info */
+    justify-content: center; /* Center the content */
+    align-items: flex-start; /* Align items at the top */
+    padding: 20px; /* Add padding around the container */
+}
+
+.map-container {
+    flex: 1;
+    max-width: 600px;
+    height: 300px; /* Set a fixed height for the map */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    overflow: hidden; /* Ensure the map stays within the container */
+}
+
+.contact-info {
+    flex: 1;
+    max-width: 560px;
+    height: 300px;
+    text-align: left; /* Align text to the left */
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column; /* Stack the text vertically */
+    justify-content: center; /* Center the text vertically */
+    box-sizing: border-box; /* Include padding in width calculation */
+    margin: 0 auto; /* Center the contact info */
+    padding: 20px; /* Add padding for better readability */
+}
+
+.contact-info h3 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: #007BFF;
+}
+
+.contact-info p {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+/* Responsive Design for Location Section */
+@media (max-width: 768px) {
+    .location-container {
+        flex-direction: column; /* Stack the map and contact info vertically */
+        align-items: center; /* Center-align the content */
+    }
+
+    .map-container {
+        width: 100%; /* Make the map take full width */
+        height: 300px; /* Adjust height for smaller screens */
+    }
+
+    .contact-info {
+        width: 100%; /* Make the contact info take full width */
+        text-align: center; /* Center-align the text */
+    }
+
+    .contact-info p {
+        font-size: 0.9rem; /* Adjust font size for smaller screens */
+    }
+}
+
+/* Contact Section */
+.contact {
+    position: relative;
+    padding: 80px 20px;
+    background: url('contact.webp') no-repeat center center/cover; /* Add a luxurious background image */
+    color: white; /* White text for contrast */
+    text-align: center; /* Center the section title and text */
+    overflow: hidden;
+}
+
+.contact::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6); /* Add a semi-transparent overlay */
+    z-index: 1;
+}
+
+.contact h2 {
+    position: relative;
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #0f72f4; /* Gold color for a luxurious feel */
+    z-index: 2;
+}
+
+.contact p {
+    position: relative;
+    font-size: 1.2rem;
+    margin-bottom: 40px;
+    color: #ddd; /* Light gray for subtle contrast */
+    z-index: 2;
+}
+
+.contact form {
+    position: relative;
+    max-width: 600px;
+    margin: 0 auto; /* Center the form */
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Add spacing between form elements */
+    z-index: 2;
+}
+
+.contact input,
+.contact textarea,
+.contact button {
+    width: 100%;
+    padding: 15px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+}
+
+.contact input,
+.contact textarea {
+    background: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
+    color: #333; /* Dark text for readability */
+}
+
+.contact input::placeholder,
+.contact textarea::placeholder {
+    color: #666; /* Subtle placeholder color */
+}
+
+.contact input:focus,
+.contact textarea:focus {
+    outline: none;
+    background: rgba(255, 255, 255, 1); /* Fully opaque background on focus */
+    box-shadow: 0 0 10px rgba(244, 193, 15, 0.8); /* Gold glow effect */
+}
+
+.contact textarea {
+    resize: none; /* Prevent resizing */
+    height: 150px; /* Set a default height */
+}
+
+.contact button {
+    background-color: #0f57f4; /* Gold background for the button */
+    color: #ffffff; /* Dark text for contrast */
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.contact button:hover {
+    background-color: #197ac9; /* Darker gold on hover */
+    transform: scale(1.05); /* Slight zoom effect */
+}
+
+/* Responsive Design for Contact Section */
+@media (max-width: 768px) {
+    .contact h2 {
+        font-size: 2rem;
+    }
+
+    .contact p {
+        font-size: 1rem;
+    }
+
+    .contact form {
+        width: 100%; /* Ensure the form takes full width on smaller screens */
+    }
+
+    .contact input,
+    .contact textarea,
+    .contact button {
+        font-size: 0.9rem; /* Adjust font size for smaller screens */
+        padding: 12px; /* Adjust padding for smaller screens */
+    }
+}
+
+/* Footer */
+.blue-footer {
+    background-color: #007BFF;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
